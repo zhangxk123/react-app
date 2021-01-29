@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React from "react"
 import './App.css';
-
+import Clock from "./components/Clock"
+import Button from "./components/Button"
+import HelloName from "./components/HelloName"
+const ref=React.createRef()
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Button ref={ref}>大按钮</Button>
+        <Clock startTime={new Date()}></Clock> 
+        <Clock startTime={new Date('2020-1-1')}></Clock> 
+        <HelloName/>
     </div>
-  );
+  )
 }
-
+export {
+  ref
+}
 export default App;
