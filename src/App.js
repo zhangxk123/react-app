@@ -1,20 +1,37 @@
 import React from "react"
 import './App.css';
-import Clock from "./components/Clock"
-import Button from "./components/Button"
-import HelloName from "./components/HelloName"
-const ref=React.createRef()
+import {Checkbox } from "./Hook"
+
 function App() {
+  const defaultValue=[1]
+  const list=[{
+    value:1,
+    label:'第一'
+  },{
+    value:2,
+    label:'第二'
+  },{
+    value:3,
+    label:'第三',
+    disabled:true
+  }]
+  const onChangeItem=(e)=>{
+    console.log(`checkedValue`,e.target.checked)
+  }
+  const onChange=(checkedValues)=>{
+    console.log(`checkedValues`,checkedValues)
+  }
   return (
     <div className="App">
-        <Button ref={ref}>大按钮</Button>
-        <Clock startTime={new Date()}></Clock> 
-        <Clock startTime={new Date('2020-1-1')}></Clock> 
-        <HelloName/>
+      <h1>Checkbox</h1>
+      {
+        list.map(item=>(
+          <Checkbox key={item.value} disabled={item.disabled} onChange={onChangeItem}>{item.label}</Checkbox>
+        ))
+      }
+      <h1>Checkbox.Group</h1>
+      <Checkbox.Group defaultValue={defaultValue} options={list} onChange={onChange} />
     </div>
   )
-}
-export {
-  ref
 }
 export default App;
