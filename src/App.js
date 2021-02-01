@@ -1,7 +1,7 @@
 import React from "react"
 import './App.css';
 import {Checkbox } from "./Hook"
-
+import {Button} from "./components"
 function App() {
   const defaultValue=[1]
   const list=[{
@@ -23,6 +23,7 @@ function App() {
   }
   return (
     <div className="App">
+      <Button>按钮测试</Button>
       <h1>Checkbox</h1>
       {
         list.map(item=>(

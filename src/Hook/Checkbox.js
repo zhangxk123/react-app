@@ -1,19 +1,14 @@
-import { useState,useMemo } from "react";
-import {selfIncreateID} from "./../utils";
-const CHECKBOXTAG = "checkbox-tag-";
+import { useState } from "react";
 function Checkbox(props) {
 	const { defaultChecked = false, disabled = false, onChange } = props;
-  const nameOrId=useMemo(()=>selfIncreateID(CHECKBOXTAG),[]);
 	return (
 		<div className='checkbox'>
-			<label htmlFor={nameOrId}>
+			<label>
 				<input
-					name={nameOrId}
-					id={nameOrId}
 					type='checkbox'
 					defaultChecked={defaultChecked}
 					disabled={disabled}
-					onChange={onChange}
+          onChange={onChange}
 				/>
 				{props.children}
 			</label>
@@ -35,7 +30,7 @@ function CheckboxGroup(props) {
 		} else {
 			newValus = values.filter(val => val !== item.value);
 		}
-		setValues(newValus);
+    setValues(newValus);
 		onChange(newValus);
 	};
 	try {
