@@ -36,7 +36,7 @@ function CheckboxGroup(props) {
 			newValus = values.filter(val => val !== item.value);
 		}
 		setValues(newValus);
-		onChange(values);
+		onChange(newValus);
 	};
 	try {
 		//render
